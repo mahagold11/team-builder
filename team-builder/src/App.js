@@ -7,14 +7,18 @@ import Friends from "./components/Friends"
 function App() {
   const [friends, setFriends] = useState([
     {
-      name: 'Boba Fett'
+      name: 'Boba Fett',
+      email: 'bobafett@bountyhunters.com',
+      role: 'Bounty Hunter'
     }
   ]);
 
 
   const addNewFriend = friend => {
     const newFriend = {
-      name: friend.name
+      name: friend.name,
+      email: friend.email,
+      role: friend.role
     };
 
     setFriends([...friends, newFriend])
@@ -23,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Friends</h1>
+      <h1>Join The Team!</h1>
 
       <FriendForm addNewFriend={addNewFriend}/>
       <Friends friends={friends} />

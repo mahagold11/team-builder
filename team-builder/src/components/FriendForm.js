@@ -3,12 +3,12 @@ import React, { useState } from "react";
 const FriendName = props => {
 
     const [friend, setFriend] = useState({
-        name: ""
+        name: "",
+        email: "",
+        role: ""
     })
 
     const handleChanges = event => {
-        console.log("event", event.target.value);
-        console.log("name", event.target.name);
 
         setFriend({...friend, [event.target.name]: event.target.value});
     }
@@ -24,14 +24,31 @@ const FriendName = props => {
 
     return (
         <form onSubmit={submitForm}>
-            <label htmlFor ="title"></label>
+            <label htmlFor ="name"></label>
             <input
                 type="text"
-                placeholder="be my friend"
+                placeholder="name"
                 name="name"
                 value={friend.name}
                 onChange={handleChanges}
             />
+            <label htmlFor ="email"></label>
+            <input
+                type="text"
+                placeholder="email"
+                name="email"
+                value={friend.email}
+                onChange={handleChanges}
+            />
+            <label htmlFor ="role"></label>
+            <input
+                type="text"
+                placeholder="role"
+                name="role"
+                value={friend.role}
+                onChange={handleChanges}
+            />
+            <button type="submit">JOIN</button>
         </form>
     );
 };
